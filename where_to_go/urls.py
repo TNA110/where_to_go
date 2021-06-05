@@ -19,10 +19,11 @@ from where_to_go import views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import include
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.startpage),
     path('tinymce/', include('tinymce.urls')),
     path("places/<int:place_id>/", views.endpoint),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

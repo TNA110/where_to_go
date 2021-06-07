@@ -14,8 +14,8 @@ class Place(models.Model):
 
 class Image(models.Model):
     title = models.CharField(max_length=200)
-    image = models.ImageField()
-    place = models.ForeignKey(Place, on_delete=models.DO_NOTHING)
+    image = models.ImageField(blank = True)
+    place = models.ForeignKey(Place, on_delete=models.CASCADE, blank=False, editable=True)
     my_order = models.PositiveIntegerField(default=0, blank=False, null=False, editable=True)
    
     class Meta(object):

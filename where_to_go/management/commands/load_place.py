@@ -19,14 +19,13 @@ class Command(BaseCommand):
         coordinates = place_data["coordinates"]
         image_urls = place_data["imgs"]
 
-        Place.objects.get_or_create(
+        place = Place.objects.get_or_create(
             title=place_data['title'],
             description_short=place_data['description_short'],
             description_long=place_data['description_long'],
             longtitude=coordinates["lng"],
             latitude=coordinates['lat'],
         )
-        place = Place.objects.get(title=place_data['title'])
 
         for image_id, image_url in enumerate(image_urls):
             image_id += 1

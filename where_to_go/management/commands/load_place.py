@@ -37,7 +37,7 @@ class Command(BaseCommand):
             Image.objects.get_or_create(
                 title=f"{str(image_id)} {place.title}",
                 place=place,
-                my_order=image_id,
+                order=image_id,
             )
 
             image_note = Image.objects.get(title=f"{str(image_id)} {place.title}")

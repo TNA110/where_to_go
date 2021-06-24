@@ -11,6 +11,9 @@ __pycache__/
 build/
 develop-eggs/
 dist/
+media/
+myvenv/
+.vscode/
 downloads/
 eggs/
 .eggs/
@@ -42,6 +45,7 @@ htmlcov/
 .tox/
 .nox/
 .coverage
+.gitignore
 .coverage.*
 .cache
 nosetests.xml

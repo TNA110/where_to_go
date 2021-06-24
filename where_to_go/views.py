@@ -3,9 +3,6 @@ from .models import Place, Image
 from django.http import JsonResponse
 
 
-places = Place.objects.all()
-
-
 def create_geojson(place):
     longtitude = place.longtitude
     latitude = place.latitude
@@ -27,6 +24,7 @@ def create_geojson(place):
 
 
 def create_geodata():
+    places = Place.objects.all()
     features = []
     for place in places:
         features.append(create_geojson(place))
@@ -49,6 +47,7 @@ def create_images_list(place):
 
 
 def endpoint(request, place_id):
+    places = Place.objects.all()
     place = get_object_or_404(places, id=place_id)
     images = create_images_list(place)
     context = {"title": place.title, "imgs": images, "description_short": place.description_short, "description_long": place.description_long, "coordinates": {"lat": place.latitude, "lng": place.longtitude}}

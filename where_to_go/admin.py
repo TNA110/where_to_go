@@ -14,7 +14,7 @@ class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
     fields = ("image", "image_preview")
 
     def image_preview(self, obj):
-        return format_html(f'<img src="{obj.image.url}"  height="{preview_height}" />')
+        return format_html('<img src="{}" height="{}" />', obj.image.url, preview_height)
 
 
 @admin.register(Place)

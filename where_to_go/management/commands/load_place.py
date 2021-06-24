@@ -19,7 +19,7 @@ class Command(BaseCommand):
         coordinates = place_data["coordinates"]
         image_urls = place_data["imgs"]
 
-        place = Place.objects.get_or_create(
+        place, existence = Place.objects.get_or_create(
             title=place_data['title'],
             description_short=place_data['description_short'],
             description_long=place_data['description_long'],

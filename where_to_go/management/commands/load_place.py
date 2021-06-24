@@ -8,11 +8,10 @@ class Command(BaseCommand):
     help = 'Загружает данные из JSON-файла, на который вы укажете ссылку'
 
     def add_arguments(self, parser):
-        parser.add_argument('url', type=str)
+        parser.add_argument('url',  type=str)
 
     def handle(self, *args, **options):
         url = options['url']
-        url = url[0]
         response = requests.get(url)
         response.raise_for_status()
         place_data = response.json()

@@ -16,8 +16,8 @@ class Place(models.Model):
 class Image(models.Model):
     title = models.CharField(max_length=200, verbose_name="Название")
     image = models.ImageField(blank=True, verbose_name="Изображение")
-    place = models.ForeignKey(Place, on_delete=models.CASCADE, blank=False, editable=True, verbose_name="Локация")
-    order = models.PositiveIntegerField(default=0, blank=False, null=False, editable=True, verbose_name="Порядковый номер")
+    place = models.ForeignKey(Place, on_delete=models.CASCADE, verbose_name="Локация")
+    order = models.PositiveIntegerField(default=0, verbose_name="Порядковый номер")
 
     class Meta(object):
         ordering = ['order', ]

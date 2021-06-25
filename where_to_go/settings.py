@@ -1,7 +1,14 @@
 from pathlib import Path
 import os
+from environs import Env
+from dotenv import load_dotenv
 
 
+load_dotenv()
+
+env = Env()
+env.read_env()
+DEBUG = env.bool("DEBUG")
 BASE_DIR = Path(__file__).resolve().parent
 SECRET_KEY = "E}KptzM41Lpz~cw3TF#NYW5J|lNj4m3Pt2~U0J{d4ne71Z2OyZKMGUdCr%oIouAZ0Z$LuCclhd*FGUwLxaFYJQ2PeGoHm}6VcgivlN95o1azAyXna}H*}Wm6jc#*LpkEkXyC4yEMEntLKk#$~THyoaB0Xz%ah1daLs9@M5nIXZg**tFIM#xyIKtRTm~v0bUPqp}eRY7qv#%HxHt%0sXlychLA7hlXX$gl0}cyu?9tME~TEknp?PQ$e97h4A9iPlBZ?VCivNyTpycvEBdA}IC6vlZNerAi{D~bpzC6PBg~A8Qq$4twi8h?l?b829a%JC5{vJVr6|0PEirnLZtwc2|Ym*{qiaOmoL~h7}ZPER2$@1uBxG?m}WQSMxFJ4ZzhV3~jgazR{65?hFZonL~Wt0Wq3oYbCp8}LQ*e6glUiAxTG2J2P?z5aPcW~hR~DS~xNlN{IctWW#EB~BmK1Wqep9%6@YX@@WW}?9B?F0{*}Mv}XJJVBV|DZv"
 SECURE_HSTS_INCLUDE_SUBDOMAINS = False
@@ -9,7 +16,6 @@ CSRF_COOKIE_SECURE = False
 SESSION_COOKIE_SECURE = False
 SECURE_SSL_REDIRECT = False
 SECURE_HSTS_PRELOAD = False
-DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', ".pythonanywhere.com"]
 
 
